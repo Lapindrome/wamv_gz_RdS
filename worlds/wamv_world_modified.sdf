@@ -1,0 +1,92 @@
+<sdf version='1.10'>
+  <world name='wamv_world'>
+    <physics name='1ms' type='ode'>
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+    <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
+    <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
+    <plugin name='gz::sim::systems::Buoyancy' filename='gz-sim-buoyancy-system'>
+      <graded_buoyancy>
+        <default_density>1000</default_density>
+        <density_change>
+          <above_depth>0.5</above_depth>
+          <density>1</density>
+        </density_change>
+      </graded_buoyancy>
+      <enable>wamv</enable>
+    </plugin>
+    <plugin name='gz::sim::systems::Imu' filename='gz-sim-imu-system'/>
+    <plugin name='gz::sim::systems::Magnetometer' filename='gz-sim-magnetometer-system'/>
+    <plugin name='gz::sim::systems::ForceTorque' filename='gz-sim-forcetorque-system'/>
+    <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+    <plugin name='gz::sim::systems::Contact' filename='gz-sim-contact-system'/>
+    <plugin name='gz::sim::systems::NavSat' filename='gz-sim-navsat-system'/>
+    <plugin name='gz::sim::systems::Sensors' filename='gz-sim-sensors-system'>
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <scene>
+      <sky/>
+      <grid>false</grid>
+      <ambient>1 1 1 1</ambient>
+      <background>0.800000012 0.800000012 0.800000012 1</background>
+      <shadows>true</shadows>
+    </scene>
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <world_frame_orientation>ENU</world_frame_orientation>
+      <latitude_deg>42.35821841111111</latitude_deg>
+      <longitude_deg>-71.047923555555499</longitude_deg>
+      <elevation>0</elevation>
+      <heading_deg>0</heading_deg>
+    </spherical_coordinates>
+    <gravity>0 0 -9.8000000000000007</gravity>
+    <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
+    <atmosphere type='adiabatic'/>
+    <include>
+      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz/share/wamv_gz/models/coast_waves</uri>²
+      <name>coast_waves</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz/share/wamv_gz/models/wamv</uri>
+      <name>wamv</name>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz/share/wamv_gz/models/seabed</uri>
+      <name>seafloor</name>
+      <pose>0 0 -20 0 0 0</pose>
+    </include>
+    <include>
+      <uri>file:///home/rosdev/.gz/fuel/fuel.gazebosim.org/openrobotics/models/vessel e/3</uri>
+      <name>vessel_a</name>
+      <pose>114.8489990234375 21.761899948120103 0 0 0 -1.3787270771011544</pose>
+    </include>
+    <include>
+      <uri>file:///home/rosdev/.gz/fuel/fuel.gazebosim.org/openrobotics/models/vessel e/3</uri>
+      <name>vessel_a_0</name>
+      <pose>257.28900146484375 -118.49600219726562 0 0 0 1.1768241273460285</pose>
+    </include>
+    <light name='sun' type='directional'>
+      <pose>0 0 10000 0 0 0</pose>
+      <cast_shadows>false</cast_shadows>
+      <intensity>1</intensity>
+      <direction>-0.5 0.10000000000000001 -0.90000000000000002</direction>
+      <diffuse>0.800000012 0.800000012 0.800000012 1</diffuse>
+      <specular>0.200000003 0.200000003 0.200000003 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <linear>0.01</linear>
+        <constant>0.90000000000000002</constant>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0</inner_angle>
+        <outer_angle>0</outer_angle>
+        <falloff>0</falloff>
+      </spot>
+    </light>
+  </world>
+</sdf>

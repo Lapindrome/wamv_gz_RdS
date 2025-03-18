@@ -1,0 +1,95 @@
+nav2_params:
+  ros__parameters:
+    use_sim_time: True  # Use simulation time
+    default_bt_xml_filename: "/home/rosdev/ros2_ws/src/wamv_gz/config/nav2_behavior_tree.xml"
+
+    # Controller Server (DWB for Thrust Control)
+    controller_server:
+      ros__parameters:
+        use_sim_time: true
+        controller_plugins: ["FollowPath"]
+
+        FollowPath:
+          plugin: "dwb_core::DWBLocalPlanner"
+          debug_trajectory_details: True
+          critics: ["Oscillation", "ObstacleFootprint", "GoalAlign", "PathAlign", "PathDist"]
+          GoalAlign:
+            scale: 0.5
+          PathAlign:
+            scale: 0.8
+          PathDist:
+            scale: 0.6
+          ObstacleFootprint:
+            scale: 1.0
+          Oscillation:
+            scale: 0.2
+
+          # Add some parameters for better path following control
+          forward_point_distance: 0.325
+          stop_time_buffer: 0.2
+          path_distance_bias: 32.0
+          goal_distance_bias: 24.0
+          occdist_scale: 0.1
+          twirling_scale: 0.0
+
+    # Planner Server
+    planner_server:
+      ros__parameters:
+        use_sim_time: true
+        planner_plugins: ["NavFn"]
+
+        NavFn:
+          plugin: "nav2_navfn_planner/NavfnPlanner"
+
+    # Costmaps (Global & Local)
+    global_costmap:
+      global_costmap:
+        ros__parameters:
+          global_frame: "map"
+          robot_base_frame: "base_link"
+          update_frequency: 5.0
+          publish_frequency: 2.0
+          resolution: 0.05
+          width: 50.0
+          height: 50.0
+          rolling_window: false
+          plugins: ["obstacle_layer", "inflation_layer"]
+          obstacle_layer:
+            plugin: "nav2_costmap_2d::ObstacleLayer"
+          inflation_layer:
+            plugin: "nav2_costmap_2d::InflationLayer"
+
+    local_costmap:
+      local_costmap:
+        ros__parameters:
+          global_frame: "odom"
+          robot_base_frame: "base_link"
+          update_frequency: 10.0
+          publish_frequency: 5.0
+          resolution: 0.05
+          width: 5.0
+          height: 5.0
+          rolling_window: true
+          plugins: ["obstacle_layer", "inflation_layer"]
+          obstacle_layer:
+            plugin: "nav2_costmap_2d::ObstacleLayer"
+          inflation_layer:
+            plugin: "nav2_costmap_2d::InflationLayer"
+
+    # Map Server
+    map_server:
+      ros__parameters:
+        use_sim_time: true
+        yaml_filename: "/home/rosdev/ros2_ws/src/wamv_gz/config/map.yaml"
+
+    # Behavior Tree Navigator
+    bt_navigator:
+      ros__parameters:
+        use_sim_time: true
+        default_bt_xml_filename: "/home/rosdev/ros2_ws/src/wamv_gz/config/nav2_behavior_tree.xml"
+
+    # Velocity Smoother
+    smoother_server:
+      ros__parameters:
+        use_sim_time: true
+        smoothing_frequency: 20.0
