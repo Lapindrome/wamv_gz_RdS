@@ -12,7 +12,7 @@ WAM-V Simulation for ROS 2 Jazzy + Gazebo Harmonic on Ubuntu 24.04
 ```bash
 colcon build
 source install/setup.bash
-ros2 launch wamv_gz wamv_launch.py
+ros2 launch wamv_gz_rds wamv_launch.py
 ```
 4. In a separate terminals you can run the following commands to move the WAM-V:
 ```bash

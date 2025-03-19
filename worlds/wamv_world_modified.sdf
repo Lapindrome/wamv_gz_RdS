@@ -45,22 +45,22 @@
     <magnetic_field>5.5644999999999998e-06 2.2875799999999999e-05 -4.2388400000000002e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
     <include>
-      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz/share/wamv_gz/models/coast_waves</uri>²
+      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz_rds_rds/share/wamv_gz_rds/models/coast_waves</uri>²
       <name>coast_waves</name>
       <pose>0 0 0 0 0 0</pose>
     </include>
     <include>
-      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz/share/wamv_gz/models/wamv</uri>
+      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz_rds_rds/share/wamv_gz_rds/models/wamv</uri>
       <name>wamv</name>
       <pose>0 0 0 0 0 0</pose>
     </include>
     <include>
-      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz/share/wamv_gz/models/seabed</uri>
+      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz_rds_rds/share/wamv_gz_rds/models/seabed</uri>
       <name>seafloor</name>
       <pose>0 0 -20 0 0 0</pose>
     </include>
     <include>
-      <uri>file:///home/rosdev/ros2_ws/src/wamv_gz_rds/models/vessel_E</uri>
+      <uri>file:///home/rosdev/ros2_ws/install/wamv_gz_rds_rds/share/wamv_gz_rds_rds/models/vessel_E</uri>
       <name>vessel_E</name>
       <pose>60 0 0 0 0 1.5</pose>
     </include>

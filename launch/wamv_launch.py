@@ -1,6 +1,6 @@
 from launch import LaunchDescription
 from launch_ros.actions import Node
-from launch.actions import SetEnvironmentVariable, IncludeLaunchDescription
+from launch.actions import SetEnvironmentVariable, IncludeLaunchDescription, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
@@ -65,4 +65,9 @@ def generate_launch_description():
             ],
             output='screen'
         ),
+        Node(
+            package="wamv_gz_rds",
+            executable="wamv_camera_YOLO.py",
+            output="screen",
+        )
     ])
