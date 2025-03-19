@@ -1,5 +1,7 @@
 # wamv_gz_rds: WAM-V Simulation for ROS 2 Jazzy + Gazebo Harmonic
 
+[Screencast from 2024-12-29 18-36-39.webm](https://github.com/user-attachments/assets/71d9622f-a003-4d59-bfaf-0f32e410608c)
+
 **Auteurs**: [TURPAULT Maxence] & [VILLEGER Arthur]  
 **Projet/Référent**: [Robotique de Service] / [MOLLARD Yoan] 
 
@@ -33,6 +35,8 @@ Avant d'installer ce projet, vous aurez besoin des éléments suivants :
 - **ros_gz**: Installez le package ROS-Gazebo avec cette commande :
   ```bash
   sudo apt-get install ros-jazzy-ros-gz
+
+---
 
 ## Installation
 
@@ -83,6 +87,7 @@ Avant d'installer ce projet, vous aurez besoin des éléments suivants :
     ros2 launch wamv_gz_rds wamv_launch.py
     ```
 
+---
 
 ## Utilisation
 
@@ -100,6 +105,7 @@ ros2 topic pub /wamv/thrusters/left/thrust std_msgs/msg/Float64 "data: 10.0"
 # Activation du propulseur droit, plage recommandée de -10.0 à 10.0
 ros2 topic pub /wamv/thrusters/right/thrust std_msgs/msg/Float64 "data: -4.0"
 
+---
 
 ### Autres commandes
 
@@ -123,9 +129,3 @@ Pour explorer ces topics, vous pouvez utiliser la commande suivante :
 ```bash
 ros2 topic echo <topic_name>
 ```
-
-## Capture vidéo
-
-Une démonstration vidéo de la simulation du WAM-V dans Gazebo est disponible ci-dessous :
-
-[Screencast from 2024-12-29 18-36-39.webm](https://github.com/user-attachments/assets/71d9622f-a003-4d59-bfaf-0f32e410608c)
