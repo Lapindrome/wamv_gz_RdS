@@ -16,9 +16,10 @@ endif()
 
 # Install necessary directories
 install(DIRECTORY
-  config
   launch
   models
+  pictures
+  scripts
   src
   worlds
   DESTINATION share/${PROJECT_NAME}
@@ -26,7 +27,7 @@ install(DIRECTORY
 
 # Install Python scripts
 install(PROGRAMS
-  src/camera_picture.py
+  src/wamv_camera_YOLO.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
