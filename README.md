@@ -1,7 +1,7 @@
 # wamv_gz_rds: WAM-V Simulation for ROS 2 Jazzy + Gazebo Harmonic
 
-**Auteurs**: [Votre nom] & [Collègue anonyme]  
-**Date**: Décembre 2024
+**Auteurs**: [TURPAULT Maxence] & [VILLEGER Arthur]  
+**Projet/Référent**: [Robotique de Service] / [MOLLARD Yoan] 
 
 Ce projet permet la simulation du robot WAM-V (Wave Adaptive Modular Vessel) dans l'environnement Gazebo, utilisant ROS 2 Jazzy et Gazebo Harmonic. Il s'agit d'une plateforme idéale pour tester des algorithmes de contrôle et de perception avant leur implémentation sur un robot physique.
 
