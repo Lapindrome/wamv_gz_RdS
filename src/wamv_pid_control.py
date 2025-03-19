@@ -4,7 +4,6 @@ from std_msgs.msg import Float64
 from sensor_msgs.msg import NavSatFix, Imu
 import math
 import numpy as np
-import time
 
 class WamvPIDController(Node):
     def __init__(self):
@@ -28,8 +27,6 @@ class WamvPIDController(Node):
 
         self.returning = False
         self.yaw = 0.0  
-        self.reached_time = None  # Ajout pour le temporisateur
-        self.home_reached = False  # Flag pour savoir si on est revenu à la maison
 
         # Seuils d'erreur
         self.heading_tolerance = math.radians(25)  # 🔥 Augmenté pour éviter trop d'alignements inutiles
@@ -68,21 +65,10 @@ class WamvPIDController(Node):
 
         if self.has_reached_target(current_lat, current_lon):
             if not self.returning:
-                if self.reached_time is None:  # Si le robot atteint la cible pour la première fois
-                    self.reached_time = time.time()  # Marquer l'heure d'arrivée
-                    self.get_logger().info("✅ PHASE: ARRIVÉE | CIBLE ATTEINTE !")
-                elif time.time() - self.reached_time >= 5:  # Si 5 secondes se sont écoulées
-                    self.get_logger().info("⏱️ PHASE: GOHOME | Retour à la position initiale")
-                    self.target_lat = self.initial_lat  # Réinitialiser la cible pour revenir à la position initiale
-                    self.target_lon = self.initial_lon
-                    self.reached_time = None  # Réinitialiser le temporisateur
-                    self.returning = True
+                self.get_logger().info("✅ PHASE: ARRIVÉE | CIBLE ATTEINTE !")
+                self.returning = False
+                self.launch_boost = True  
                 return
-            else:
-                if not self.home_reached:  # Vérifie si on est revenu à la maison
-                    self.get_logger().info("🏠 PHASE: ARRIVÉE À LA MAISON | Retour complet !")
-                    self.home_reached = True
-                    return
 
         distance, heading_error = self.compute_navigation(current_lat, current_lon)
 
