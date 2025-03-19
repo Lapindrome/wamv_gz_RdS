@@ -8,7 +8,7 @@ from launch_ros.substitutions import FindPackageShare
 
 def generate_launch_description():
     pkg_ros_gz_sim = FindPackageShare('ros_gz_sim')
-    pkg_wamv_gz = FindPackageShare('wamv_gz')
+    pkg_wamv_gz = FindPackageShare('wamv_gz_rds')
     gz_launch_path = PathJoinSubstitution([pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py'])
 
     return LaunchDescription([
