@@ -60,14 +60,9 @@
       <pose>0 0 -20 0 0 0</pose>
     </include>
     <include>
-      <uri>file:///home/rosdev/.gz/fuel/fuel.gazebosim.org/openrobotics/models/vessel e/3</uri>
-      <name>vessel_a</name>
-      <pose>114.8489990234375 21.761899948120103 0 0 0 -1.3787270771011544</pose>
-    </include>
-    <include>
-      <uri>file:///home/rosdev/.gz/fuel/fuel.gazebosim.org/openrobotics/models/vessel e/3</uri>
-      <name>vessel_a_0</name>
-      <pose>257.28900146484375 -118.49600219726562 0 0 0 1.1768241273460285</pose>
+      <uri>file:///home/rosdev/ros2_ws/src/wamv_gz_rds/models/vessel_E</uri>
+      <name>vessel_E</name>
+      <pose>60 0 0 0 0 1.5</pose>
     </include>
     <light name='sun' type='directional'>
       <pose>0 0 10000 0 0 0</pose>

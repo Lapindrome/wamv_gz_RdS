@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>wamv_gz</name>
+  <name>wamv_gz_rds</name>
   <version>0.0.1</version>
   <description>ROS 2 Jazzy package for simulating the WAM-V USV in Gazebo Harmonic</description>
   <maintainer email="davidjohndorf@gmail.com">David Dorf</maintainer>
