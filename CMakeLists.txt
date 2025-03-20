@@ -28,6 +28,7 @@ install(DIRECTORY
 # Install Python scripts
 install(PROGRAMS
   src/wamv_camera_YOLO.py
+  src/wamv_pid_control.py
   DESTINATION lib/${PROJECT_NAME}
 )
 

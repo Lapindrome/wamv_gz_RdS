@@ -20,5 +20,9 @@
   
   <export>
     <build_type>ament_cmake</build_type>
+    <launch>
+      <launch_file>wamv_launch.py</launch_file>
+      <launch_file>wamv_launch_all_nodes.py</launch_file>
+    </launch>
   </export>
 </package>

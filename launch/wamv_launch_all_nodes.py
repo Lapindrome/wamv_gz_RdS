@@ -65,4 +65,16 @@ def generate_launch_description():
             ],
             output='screen'
         ),
+        Node(
+            package="wamv_gz_rds",
+            executable="wamv_camera_YOLO.py",
+            name="camera_node",
+            output="screen",
+        ),
+        Node(
+            package="wamv_gz_rds",
+            executable="wamv_pid_control.py",
+            name="PID_node",
+            output="screen",
+        ),
     ])
