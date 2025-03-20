@@ -14,7 +14,7 @@ class YOLOImageSubscriber(Node):
         super().__init__("yolo_image_subscriber")
 
         # Load YOLOv8 model (replace with your model path if needed)
-        self.model = YOLO("yolo11n.pt")  # Use 'yolov8n.pt', 'yolov8s.pt', etc.
+        self.model = YOLO("yolo11n.pt")  # Pretrained YOLO11 model
 
         # ROS 2 Subscription to Image Topic
         self.subscription = self.create_subscription(
